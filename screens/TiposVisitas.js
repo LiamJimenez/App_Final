@@ -29,24 +29,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#121212',
+    backgroundColor: '#f0f8ff', 
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#003366', 
     marginBottom: 20,
   },
   itemContainer: {
     padding: 15,
-    backgroundColor: '#333333',
+    backgroundColor: '#e6f2ff', 
     borderRadius: 8,
     marginBottom: 10,
+    borderColor: '#ccccff',
+    borderWidth: 1,
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 5,
   },
   itemText: {
     fontSize: 18,
-    color: '#ffffff',
+    color: '#003366', 
   },
 });
 
 export default TiposVisitasScreen;
+

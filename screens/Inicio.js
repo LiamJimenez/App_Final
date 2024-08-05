@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#121212',  
+    backgroundColor: '#f0f8ff',
   },
   header: {
     alignItems: 'center',
@@ -88,12 +88,12 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 32,
     fontWeight: '700',
-    color: '#ffffff',  
+    color: '#003366', 
     textAlign: 'center',
     marginBottom: 15,
   },
   addButton: {
-    backgroundColor: '#1e88e5',  
+    backgroundColor: '#ffa07a', 
     paddingVertical: 15,
     borderRadius: 8,
     alignItems: 'center',
@@ -106,10 +106,10 @@ const styles = StyleSheet.create({
   },
   eventContainer: {
     padding: 15,
-    backgroundColor: '#333333',  
+    backgroundColor: '#e6f2ff',  
     marginBottom: 15,
     borderRadius: 8,
-    borderColor: '#444444',  
+    borderColor: '#ccccff', 
     borderWidth: 1,
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 6 },
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
   eventTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#ffffff',  
+    color: '#003366', 
   },
   eventPhoto: {
     width: '100%',
@@ -138,13 +138,13 @@ const styles = StyleSheet.create({
   },
   eventInfo: {
     fontSize: 14,
-    color: '#b0b0b0',  
+    color: '#666666',  
     marginTop: 10,
   },
   officialButton: {
     marginTop: 20,
     padding: 15,
-    backgroundColor: '#1e88e5',  
+    backgroundColor: '#ffa07a', 
     borderRadius: 8,
     alignItems: 'center',
   },
@@ -154,5 +154,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 });
+
 
 export default InicioScreen;
