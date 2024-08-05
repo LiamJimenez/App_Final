@@ -1,3 +1,4 @@
+// screens/AgregarEventoScreen.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -105,32 +106,32 @@ const styles = StyleSheet.create({
   },
   scrollViewContainer: {
     flexGrow: 1,
-    backgroundColor: '#121212',  
+    backgroundColor: '#f0f8ff', 
   },
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#1e1e1e',  
+    backgroundColor: '#f0f8ff',
   },
   label: {
     fontSize: 18,
-    color: '#ffffff',  
+    color: '#003366', 
     marginBottom: 10,
   },
   input: {
     borderWidth: 1,
-    borderColor: '#444444',  
+    borderColor: '#8fbcd4',
     padding: 10,
     fontSize: 18,
     marginBottom: 20,
     borderRadius: 5,
-    backgroundColor: '#333333',  
-    color: '#ffffff',  
+    backgroundColor: '#ffffff', 
+    color: '#003366', 
   },
   cameraButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#00796b',  
+    backgroundColor: '#00796b', 
     padding: 10,
     borderRadius: 5,
     marginBottom: 20,
@@ -148,7 +149,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   saveButton: {
-    backgroundColor: '#1e88e5',  
+    backgroundColor: '#1e88e5',
     paddingVertical: 15,
     borderRadius: 8,
     alignItems: 'center',

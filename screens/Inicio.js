@@ -6,16 +6,26 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const InicioScreen = ({ navigation }) => {
   const [events, setEvents] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isFocused = useIsFocused();
 
   useEffect(() => {
+    const checkLoginStatus = async () => {
+      const loggedIn = await AsyncStorage.getItem('loggedIn');
+      if (loggedIn) {
+        setIsLoggedIn(JSON.parse(loggedIn));
+      }
+    };
+
     const fetchEvents = async () => {
       const storedEvents = await AsyncStorage.getItem('events');
       if (storedEvents) {
         setEvents(JSON.parse(storedEvents));
       }
     };
+
     if (isFocused) {
+      checkLoginStatus();
       fetchEvents();
     }
   }, [isFocused]);
@@ -36,6 +46,11 @@ const InicioScreen = ({ navigation }) => {
       ],
       { cancelable: true }
     );
+  };
+
+  const handleLogout = async () => {
+    await AsyncStorage.removeItem('loggedIn');
+    setIsLoggedIn(false);
   };
 
   return (
@@ -65,9 +80,23 @@ const InicioScreen = ({ navigation }) => {
           </TouchableOpacity>
         )}
       />
-      <TouchableOpacity style={styles.officialButton} onPress={() => navigation.navigate('AcercaDe')}>
-        <Text style={styles.officialButtonText}>Técnicos</Text>
-      </TouchableOpacity>
+      {isLoggedIn ? (
+        <>
+          <TouchableOpacity style={styles.officialButton} onPress={() => navigation.navigate('AcercaDe')}>
+            <Text style={styles.officialButtonText}>Técnicos</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.officialButton} onPress={() => navigation.navigate('ConsultaDirector')}>
+            <Text style={styles.officialButtonText}>Consulta del Director</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleLogout}>
+            <Text style={styles.logoutText}>Cerrar Sesión</Text>
+          </TouchableOpacity>
+        </>
+      ) : (
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Text style={styles.loginText}>Iniciar Sesión</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -76,7 +105,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#121212',  
+    backgroundColor: '#f0f8ff',
   },
   header: {
     alignItems: 'center',
@@ -85,12 +114,12 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 32,
     fontWeight: '700',
-    color: '#ffffff',  
+    color: '#003366',
     textAlign: 'center',
     marginBottom: 15,
   },
   addButton: {
-    backgroundColor: '#1e88e5',  
+    backgroundColor: '#ffa07a',
     paddingVertical: 15,
     borderRadius: 8,
     alignItems: 'center',
@@ -103,10 +132,10 @@ const styles = StyleSheet.create({
   },
   eventContainer: {
     padding: 15,
-    backgroundColor: '#333333',  
+    backgroundColor: '#e6f2ff',
     marginBottom: 15,
     borderRadius: 8,
-    borderColor: '#444444',  
+    borderColor: '#ccccff',
     borderWidth: 1,
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 6 },
@@ -125,7 +154,7 @@ const styles = StyleSheet.create({
   eventTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#ffffff',  
+    color: '#003366',
   },
   eventPhoto: {
     width: '100%',
@@ -135,13 +164,13 @@ const styles = StyleSheet.create({
   },
   eventInfo: {
     fontSize: 14,
-    color: '#b0b0b0',  
+    color: '#666666',
     marginTop: 10,
   },
   officialButton: {
     marginTop: 20,
     padding: 15,
-    backgroundColor: '#1e88e5',  
+    backgroundColor: '#ffa07a',
     borderRadius: 8,
     alignItems: 'center',
   },
@@ -149,6 +178,20 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize: 16,
     fontWeight: '600',
+  },
+  loginText: {
+    marginTop: 20,
+    color: '#ffa07a',
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  logoutText: {
+    marginTop: 20,
+    color: '#ff6f6f',
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center',
   },
 });
 
