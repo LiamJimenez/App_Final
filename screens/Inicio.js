@@ -68,6 +68,9 @@ const InicioScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.officialButton} onPress={() => navigation.navigate('AcercaDe')}>
         <Text style={styles.officialButtonText}>Técnicos</Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.officialButton} onPress={() => navigation.navigate('ConsultaDirector')}>
+        <Text style={styles.officialButtonText}>Consulta del Director</Text>
+      </TouchableOpacity>
     </View>
   );
 };

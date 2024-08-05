@@ -7,3 +7,4 @@ npm install @react-navigation/bottom-tabs
 npm install react-native-screens react-native-safe-area-context
 expo install expo-image-picker
 npm install react-native-vector-icons
+npm int
