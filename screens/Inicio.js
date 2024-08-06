@@ -1,3 +1,4 @@
+// screens/Inicio.js
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, FlatList, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -87,6 +88,10 @@ const InicioScreen = ({ navigation }) => {
           </TouchableOpacity>
           <TouchableOpacity style={styles.officialButton} onPress={() => navigation.navigate('ConsultaDirector')}>
             <Text style={styles.officialButtonText}>Consulta del Director</Text>
+          </TouchableOpacity>
+          {/* Botón para navegar a la pantalla CentroEducativoScreen */}
+          <TouchableOpacity style={styles.officialButton} onPress={() => navigation.navigate('CentroEducativo', { id: '123' })}>
+            <Text style={styles.officialButtonText}>Centro Educativo</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={handleLogout}>
             <Text style={styles.logoutText}>Cerrar Sesión</Text>
@@ -194,6 +199,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
 
 export default InicioScreen;

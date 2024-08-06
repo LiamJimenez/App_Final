@@ -6,7 +6,10 @@ import DetallesEventoScreen from '../screens/DetallesEvento';
 import AcercaDeScreen from '../screens/AcercaDe';
 import AgregarEventoScreen from '../screens/AgregarEvento';
 import ConsultaDirectorScreen from '../screens/ConsultaDirector';
+import Tecnico from '../screens/Tecnico'
+import CentroEducativoScreen from '../screens/CentrosEducativo';
 import TecnicoScreen from '../screens/Tecnico';
+import LoginScreen from '../screens/Login';
 
 const Stack = createStackNavigator();
 
@@ -14,11 +17,13 @@ const StackNavigator = () => (
   <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name="Inicio" component={InicioScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="DetallesEvento" component={DetallesEventoScreen} />
       <Stack.Screen name="AcercaDe" component={AcercaDeScreen} />
       <Stack.Screen name="AgregarEvento" component={AgregarEventoScreen} />
       <Stack.Screen name="ConsultaDirector" component={ConsultaDirectorScreen} />
       <Stack.Screen name="Tecnico" component={TecnicoScreen} />
+      <Stack.Screen name="CentroEducativo" component={CentroEducativoScreen} />
     </Stack.Navigator>
   </NavigationContainer>
 );
